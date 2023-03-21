@@ -29,4 +29,7 @@ class TestSrc(unittest.TestCase):
         data = s.pop()
         self.assertEqual(data, 'data2')
 
+    def test_str(self):
+        s = Stack()
+        self.assertEqual(str(s), "I'm Stack")
 
