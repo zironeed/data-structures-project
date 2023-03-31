@@ -24,4 +24,12 @@ class TestSrc(unittest.TestCase):
         self.assertEqual(queue.tail.data, 'two')
         self.assertEqual(queue.head.next_node.data, 'two')
 
+    def test_dequeue(self):
+        queue = Queue()
+        queue.enqueue('one')
+        queue.enqueue('two')
+        self.assertEqual(queue.dequeue(), 'one')
+        self.assertEqual(queue.dequeue(), 'two')
+        self.assertEqual(queue.dequeue(), None)
+
 

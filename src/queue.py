@@ -1,7 +1,7 @@
 class Node:
     """Класс для узла очереди"""
 
-    def __init__(self, data, next_node=None, previous_node=None):
+    def __init__(self, data, next_node=None) -> None:
         """
         Конструктор класса Node
 
@@ -14,12 +14,12 @@ class Node:
 class Queue:
     """Класс для очереди"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Конструктор класса Queue"""
         self.head = None
         self.tail = None
 
-    def enqueue(self, data):
+    def enqueue(self, data) -> None:
         """
         Метод для добавления элемента в очередь
 
@@ -33,13 +33,19 @@ class Queue:
             self.tail.next_node = node
             self.tail = node
 
-    def dequeue(self):
+    def dequeue(self) -> str:
         """
         Метод для удаления элемента из очереди. Возвращает данные удаленного элемента
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.head:
+            deleted_node = self.head.data
+            new_head = self.head.next_node
+            self.head = new_head
+            return deleted_node
+        else:
+            return None
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
