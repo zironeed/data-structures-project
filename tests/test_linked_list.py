@@ -34,3 +34,18 @@ class TestSrc(unittest.TestCase):
         ll.insert_at_end('2')
         self.assertEqual(ll.head.data, '1')
         self.assertEqual(ll.tail.data, '2')
+
+    def test_to_list(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+        self.assertEqual(ll.to_list(), [[1, 'lazzy508509'], [2, 'mosh_s']])
+
+    def test_get_data_by_id(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+        self.assertEqual(ll.get_data_by_id(1), {'id': 1, 'username': 'lazzy508509'})
+
+        node = ll.get_data_by_id(22)
+        self.assertIsNone(node)
